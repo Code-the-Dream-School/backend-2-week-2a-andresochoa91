@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+users = User.create([
+  {id: 1, name: 'Jay', nickname: 'dadjokes'},
+  {id: 2, name: 'Pasan', nickname: 'pasanpr'},
+  {id: 5, name: 'Alena', nickname: 'sketchings'}
+])
+
+forums = Forum.create([
+  {id: 1, name: 'Ruby', public: true},
+  {id: 3, name: 'PHP', public: true},
+  {id: 4, name: 'iOS', public: true},
+  {id: 6, name: 'SQL', public: true}
+])
