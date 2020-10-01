@@ -10,13 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200926071355) do
+ActiveRecord::Schema.define(version: 20201001001827) do
 
   create_table "forums", force: :cascade do |t|
     t.string   "name"
     t.boolean  "public"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "forums_users", id: false, force: :cascade do |t|
+    t.integer "user_id",  null: false
+    t.integer "forum_id", null: false
+  end
+
+  create_table "magazines", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "twitter"
+    t.string   "github"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "subscribers", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer  "months"
+    t.integer  "subscriber_id"
+    t.integer  "magazine_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|
